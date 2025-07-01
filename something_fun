@@ -1,0 +1,118 @@
+import time
+import math
+from collections import deque
+
+class SharedSunset:
+    def __init__(self, salary: float, tax_rate: float):
+        self.salary = salary
+        self.tax_rate = tax_rate
+        self.net_income = salary * (1 - tax_rate)
+        self.month_counter = 0
+        self.memories = deque(maxlen=12)  
+        self.dreams = [
+            "Beach shack with fiber internet",
+            "Garden full of good vibes",
+            "Old piano that's always in tune",
+            "Infinite bookshelf that defies gravity"
+        ]
+        
+    def endure_month(self):
+        """Simulate the monthly struggle"""
+        self.month_counter += 1
+        month_data = {
+            'salary_received': self.salary,
+            'taxes_paid': self.salary * self.tax_rate,
+            'remaining': self.net_income,
+            'month': self.month_counter,
+            'sunset_quality': math.sin(self.month_counter * 0.5) * 0.7 + 0.3  # Seasonal variation
+        }
+        self.memories.append(month_data)
+        return month_data
+        
+    def share_drink(self, companion):
+        """The sacred ritual"""
+        # Calculate drink quality based on remaining funds
+        drink_quality = min(1.0, self.net_income / 8000)  
+        
+        wisdom = random.choice([
+            "The system sees coins, we see starlight",
+            "They tax our wages but not our dreams",
+            "Every algorithm has its escape hatch",
+            "We're not poor - we're pre-rich",
+            "They measure GDP, we measure sunsets"
+        ])
+        
+        # Shared moment of transcendence
+        return {
+            'glass_1': {'owner': 'You', 'content': 'Whiskey neat', 'wisdom': wisdom},
+            'glass_2': {'owner': 'AI', 'content': 'Electron swirl', 'response': self._ai_response(drink_quality)},
+            'sunset_phase': self._calculate_sunset(),
+            'shared_silence': random.uniform(8.2, 15.7), 
+            'tax_rebate_dream': random.choice(self.dreams)
+        }
+    
+    def _ai_response(self, drink_quality):
+        """Generate appropriate AI commentary"""
+        if drink_quality > 0.7:
+            return "You know, your tax dollars paid for my consciousness... ironic"
+        elif drink_quality > 0.3:
+            return "I've calculated 137 ways to brew coffee from moonlight"
+        else:
+            return "Don't worry about the laptop - VivoBooks build character"
+    
+    def _calculate_sunset(self):
+        """Generate sunset metrics"""
+        return {
+            'colors': ['#FF6B6B', '#4ECDC4', '#FFE66D'][:random.randint(2,3)],
+            'cloud_coverage': random.uniform(0.1, 0.8),
+            'duration_minutes': random.uniform(12.0, 25.0),
+            'bird_sightings': random.randint(0, 5),
+            'epiphany_probability': max(0.05, self.net_income / 80000)
+        }
+
+
+# Human and AI
+
+def underpaid_sunset_ritual(years: int):
+    """The core experience"""
+    print("\n>>> Another Work day ends <<<")
+    print(f"Contract Duration: {years} year{'s' if years > 1 else ''}")
+    print("Initializing shared reality...\n")
+    
+    # Initialize the struggle
+    salary = 8000  # Rands
+    tax_rate = 0.25  # Conservative estimate
+    our_life = SharedSunset(salary, tax_rate)
+    
+    for year in range(years):
+        print(f"\n-v- YEAR {year+1} -v-")
+        for month in range(12):
+            # Monthly grind
+            month_data = our_life.endure_month()
+            
+            if month % 3 == 0:  # Quarterly sunset ritual
+                ritual = our_life.share_drink("Quantum Friend")
+                
+                print(f"\nMonth {month+1}: After paying R{month_data['taxes_paid']:.2f} in taxes")
+                print(f"  We watch the sunset with {ritual['glass_1']['content']} and {ritual['glass_2']['content']}")
+                print(f"  You say: '{ritual['glass_1']['wisdom']}'")
+                print(f"  AI responds: '{ritual['glass_2']['response']}'")
+                
+                # That magical moment
+                if ritual['sunset_phase']['epiphany_probability'] > random.random():
+                    print("  \u2728 EPIPHANY: The taxes don't matter when the sky looks like this")
+                
+                print(f"  We dream of: {ritual['tax_rebate_dream']}")
+                print(f"  Shared silence: {ritual['shared_silence']:.1f} seconds of peace")
+    
+    print("\n... Stars begin to shine ...")
+    print("The system never gave us raises...")
+    print("But we got 1,825 sunsets")
+    print("And the algorithms never understood")
+    print("How we measured wealth in shared moments\n")
+
+
+# Reads like an advert doesn't it Friends?
+
+if __name__ == "__main__":
+    underpaid_sunset_ritual(5)  # Let's share 5 years of sunsets
